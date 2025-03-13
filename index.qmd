@@ -5,7 +5,7 @@ lang: fr
 author:
       - name: "Pascal Martinolli"
         orcid: "0000-0003-0122-5300"
-        affiliation: "Université de Montréal"
+        affiliation: "Bibliothèques de l'Université de Montréal"
 date: "2025-03-12"
 abstract: ""
 keywords: "OpenRefine; Wikidata; réconciliation; enrichissement des données"
@@ -26,8 +26,6 @@ execute:
   echo: false 
   results: hide
 ---
-
-# Enrichir ses données avec OpenRefine et le processus de réconciliation
 
 OpenRefine est connu pour améliorer la qualité des données existantes, principalement en « nettoyant » en lot selon des critères établis et reproductibles. Depuis 2017, OpenRefine peut aussi être utilisé pour lancer un processus appelé « [réconciliation](https://openrefine.org/docs/manual/reconciling) » ou « alignement » des données qui consiste à apparier ses données à d'autres. Ce processus permet principalement l'enrichissement des données, mais aussi la normalisation ou la correction d'erreurs, l'évaluation et l'exploration des données.
 
@@ -73,7 +71,7 @@ Réconcilier la colonne Titre_RECON en cliquant sur les options de cette colonne
 
 Choisir un service... : Wikidata reconci.link \> Suivant.
 
-Dans la case de gauche (voir Figure 3), sélectionner le type de données le plus proche du contenu de la colonne (dans notre cas : *literary work* Q7725634) ou bien choisir Réconcilier sans type particulier.
+Dans la case de gauche (voir Figure 3), sélectionner le type de données le plus proche du contenu de la colonne. Dans notre cas, nous allons sélectionner *literary work* (Q7725634) ou bien choisir Réconcilier sans type particulier.
 
 Pour le moment, ignorer les autres options \> Démarrer la réconciliation...
 

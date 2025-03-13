@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: docs
+
+lang: fr
+
+website:
+  title: "Enrichir ses données avec OpenRefine et le processus de réconciliation"
+
+format:
+  html:
+    theme: cosmo
+    css: annexes/styles.css
+    toc: true
+
+editor: visual
+

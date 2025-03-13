@@ -6,9 +6,9 @@ author:
       - name: "Pascal Martinolli"
         orcid: "0000-0003-0122-5300"
         affiliation: "Bibliothèques de l'Université de Montréal"
-date: "2025-03-12"
-abstract: ""
-keywords: "OpenRefine; Wikidata; réconciliation; enrichissement des données"
+date: "2025-03-13"
+abstract: "Proposition de leçon soumise à The Programming Historian (français)"
+keywords: "OpenRefine; Wikidata; réconciliation des données; alignement des données; enrichissement des données"
 
 format: 
   html:

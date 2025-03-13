@@ -1,6 +1,6 @@
 ---
-title: "Enrichir ses données avec OpenRefine et le processus de réconciliation"
-subtitle: "Exemple avec le service de réconciliation de Wikidata"
+title: "Enrichir ses données avec le processus de réconciliation d'OpenRefine"
+subtitle: "Exemple avec le service de Wikidata"
 lang: fr
 author:
       - name: "Pascal Martinolli"

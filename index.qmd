@@ -8,7 +8,7 @@ author:
         affiliation: "Bibliothèques de l'Université de Montréal"
 date: "2025-03-13"
 abstract: "Proposition de leçon soumise à The Programming Historian (français)"
-keywords: "OpenRefine; Wikidata; réconciliation des données; alignement des données; enrichissement des données"
+keywords: "OpenRefine; Wikidata; réconciliation des données; alignement des données; enrichissement des données; données ouvertes liées"
 
 format: 
   html:
@@ -27,19 +27,19 @@ execute:
   results: hide
 ---
 
-OpenRefine est connu pour améliorer la qualité des données existantes, principalement en « nettoyant » en lot selon des critères établis et reproductibles. Depuis 2017, OpenRefine peut aussi être utilisé pour lancer un processus appelé « [réconciliation](https://openrefine.org/docs/manual/reconciling) » ou « alignement » des données qui consiste à apparier ses données à d'autres. Ce processus permet principalement l'enrichissement des données, mais aussi la normalisation ou la correction d'erreurs, l'évaluation et l'exploration des données.
+Le logiciel [OpenRefine](https://openrefine.org/) est connu pour améliorer la qualité des données existantes, principalement en les « nettoyant » en lot selon des critères établis et reproductibles. Depuis 2017, OpenRefine peut aussi être utilisé pour lancer un processus appelé « [réconciliation](https://openrefine.org/docs/manual/reconciling) » ou « alignement » des données qui consiste à apparier ses données à d'autres. Ce processus permet principalement l'enrichissement des données, mais aussi la normalisation ou la correction d'erreurs, l'évaluation et l'exploration des données.
 
-Nous allons voir dans ce tutoriel comment utiliser OpenRefine sur des données locales pour les enrichir avec des données provenant de Wikidata. Ensuite, nous situerons cette leçon dans un cadre plus large afin d'améliorer ce processus, d'explorer d'autres services de réconciliation et d'adopter des méthodes similaires pertinentes pour la recherche en histoire. Enfin, nous terminerons par une réflexion sur l'apport de ces approches numériques.
+Nous allons voir dans ce tutoriel comment utiliser OpenRefine sur des données locales pour les enrichir avec des données provenant de [Wikidata](https://www.wikidata.org/). Wikidata est une base de connaissances collaborative, structurée et multilingue, qui offre une grande richesse de contenus couvrant une vaste diversité de domaines, facilitant ainsi l’enrichissement des données et leur interconnexion dans l’écosystème des données ouvertes liées (*linked open data*). Ensuite, nous situerons cette leçon dans un cadre plus large afin d'améliorer ce processus, d'explorer d'autres services de réconciliation et d'adopter des méthodes similaires pertinentes pour la recherche en histoire. Enfin, nous terminerons par une réflexion sur l'apport et les biais de ces approches numériques.
 
 # Exemple pratique pas-à-pas
 
 ## Installation
 
-[Installer OpenRefine](https://openrefine.org/download.html) sur son ordinateur (Windows, Mac OS ou Linux). Comme c'est un programme qui s'execute dans le navigateur, il n'est pas nécessaire d'avoir des droits d'administrateur pour l'installer.
+[Installer OpenRefine](https://openrefine.org/download.html) sur son ordinateur (Windows, Mac OS ou Linux). Comme il s'agit d'un programme qui s'execute dans le navigateur, il n'est pas nécessaire d'avoir des droits d'administrateur pour l'installer.
 
 ## Choisir un jeu de données
 
-Nous allons utiliser un jeu de données sous la forme d'une liste de douze ouvrages d'alchimie en deux colonnes : `Titre` (pour le titre de l'ouvrage) et `Date` (pour date de publication, certaines dates sont manquantes). Ce jeu de données ([télégeableable](/data/traites-alchimie.csv)) est sous la forme d'un fichier CSV encodé en UTF-8 (voir Figure 1). C'est un format ouvert idéal pour traiter et archiver des données tabulées. Veuillez noter que les résultats présentés ci-dessous peuvent se présenter différemment si vous refaites les mêmes actions, car les données de Wikidata auront changé.
+Nous allons utiliser un jeu de données sous la forme d'une liste de douze ouvrages d'alchimie en deux colonnes : `Titre` (pour le titre de l'ouvrage) et `Date` (pour date de publication, certaines dates sont manquantes). Ce jeu de données ([téléchargeable](/data/traites-alchimie.csv)) est sous la forme d'un fichier CSV encodé en UTF-8 (voir Figure 1). C'est un format ouvert idéal pour traiter et archiver des données tabulées. Veuillez noter que les résultats des processus présentés ci-dessous peuvent se présenter différemment si vous refaites les mêmes actions, car les données de Wikidata auront changé.
 
 ![Figure 1. - Apercu du fichier CSV](images/figure1-apercu-csv.png)
 
@@ -47,9 +47,9 @@ L'objectif est d'enrichir ces données en important des données supplémentaire
 
 ## Lancer OpenRefine et importer les données
 
-Cliquer sur Languages et changer pour Français. Puis cliquer sur Créer un projet \> Cet ordinateur \> Sélect. fichiers \> Sélectionner le fichier CSV \> Suivant \> Configurer les options d'analyse syntaxique : Les colonnes sont séparées par : une virgule \> Cliquer sur Créer un projet.
+Cliquez sur *Languages* et changer pour Français. Puis cliquez sur Créer un projet \> Cet ordinateur \> Sélect. fichiers \> Sélectionnez le fichier CSV \> Suivant \> Configurez les options d'analyse syntaxique : Les colonnes sont séparées par : une virgule \> Cliquez sur Créer un projet.
 
-Vérifier que tout est bien importé ou changer les paramètres de la page Configurer les options d'analyse syntaxique.
+Vérifiez que tout est bien importé ou changer les paramètres de la page Configurer les options d'analyse syntaxique.
 
 On peut noter sur cette page, la possibilité d'importer les données depuis de nombreux formats : XLS et XLSX (Microsoft Excel), JSON (et JSON-LD), fichiers texte à base de lignes, fichiers CSV (ou TSV ou semblables comme notre exemple), fichiers textes à largeur de champ fixe, PC-Axis, MARC, RDF (/N3, /N-Triples, /Turtle, /XML), Wikitext, ODS (fichier de tableur de LibreOffice Calc).
 
@@ -63,21 +63,21 @@ Le processus de réconciliation consiste habituellement en deux étapes :
 
 Tout d'abord nous allons créer un doublon de la colonne `Titre`. Cette étape est importante puisque le résultat d'une réconciliation réussie remplace souvent le contenu de la cellule originale par le texte du libellé (*label* dans Wikidata) de la valeur réconciliée. Or, il est souhaitable de pouvoir comparer la colonne de titre originale avec la colonne de titre réconcilié. En science, il est toujours une bonne pratique de ne pas modifier les données originales afin de garantir leur intégrité, leur traçabilité et leur reproductibilité. Toute modification pourrait entraîner des erreurs, des biais ou une perte d'informations importantes, compromettant ainsi la fiabilité des résultats obtenus. Conserver les données brutes permet également aux chercheurs de vérifier et de reproduire les analyses, de comparer différentes approches méthodologiques et de répondre à d'éventuelles critiques en s’appuyant sur des sources inchangées. C’est pourquoi il est recommandé d’effectuer toute transformation ou correction sur une copie des données originales plutôt que sur celles-ci directement.
 
-Cliquer sur les options de la colonne Titre \> Editer la colonne \> Ajouter une colonne en fonction de cette colonne... \> Donner le nom Titre_RECON \> Ne rien modifier d'autre (c'est à dire que le contenu sera exactement l'expression *value*).
+Cliquez sur les options de la colonne Titre \> Editer la colonne \> Ajouter une colonne en fonction de cette colonne... \> Donnez le nom Titre_RECON \> Ne rien modifier d'autre (c'est à dire que le contenu sera exactement l'expression *value*).
 
-Réconcilier la colonne Titre_RECON en cliquant sur les options de cette colonne \> Réconcilier \> Démarrer la réconciliation (voir Figure 2)
+Réconciliez la colonne Titre_RECON en cliquant sur les options de cette colonne \> Réconcilier \> Démarrer la réconciliation (voir Figure 2)
 
 ![Figure 2. - Démarrer la réconciliation](images/figure2-demarrer-reconciliation.png)
 
 Choisir un service... : Wikidata reconci.link \> Suivant.
 
-Dans la case de gauche (voir Figure 3), sélectionner le type de données le plus proche du contenu de la colonne. Dans notre cas, nous allons sélectionner *literary work* (Q7725634) ou bien choisir Réconcilier sans type particulier.
+Dans la case de gauche (voir Figure 3), sélectionnez le type de données le plus proche du contenu de la colonne. Dans notre cas, nous allons sélectionner *literary work* (Q7725634) ou bien choisir Réconcilier sans type particulier.
 
-Pour le moment, ignorer les autres options \> Démarrer la réconciliation...
+Pour le moment, ignorez les autres options \> Démarrer la réconciliation...
 
 ![Figure 3. - Options de réconciliation.](images/figure3-options.png)
 
-Attendre que le processus se termine. On peut voir la progression dans une zone jaune en haut du tableau principal.
+Attendez que le processus se termine. On peut voir la progression dans une zone jaune en haut du tableau principal.
 
 Une fois terminé, observer plusieurs choses :
 
@@ -92,11 +92,11 @@ Une fois terminé, observer plusieurs choses :
 
 -   Chaque choix est précédé de deux cases à cocher. La première case avec une coche unique permet de n'apparier que cette cellule. La seconde case à cocher avec deux coches permet d'apparier toutes les cellules identiques de la colonne avec la valeur choisie. Cela est très utile dans le cas d'un grand jeu de données avec des valeurs semblables qui se répètent.
 
--   Créer un nouvel élément (pour cette cellule ; ou pour cette cellule et toutes les cellules identiques) : ignorer pour le moment.
+-   Créer un nouvel élément (pour cette cellule ; ou pour cette cellule et toutes les cellules identiques) : ignorez pour le moment.
 
 -   Chercher une correspondance : permet de relancer une recherche dans Wikidata avec un autre contenu. Souvent ce qui fonctionne bien, c'est une valeur de cellule plus restreinte (un titre ou un nom plus court par exemple).
 
-Pour aller plus loin, se rendre à la section [Comment améliorer la réconciliation ?](#comment-améliorer-la-réconciliation)
+Pour aller plus loin, rendez-vous à la section [Comment améliorer la réconciliation ?](#comment-améliorer-la-réconciliation)
 
 En survolant les valeurs proposées en choix, il est possible de visualiser un extrait de l'élément Wikidata. En cliquant sur le lien, cela ouvre un nouveau onglet vers cet élément Wikidata. Il est possible de choisir une valeur pour chaque cellulle non résolue. À la fin de chaque choix pour chaque cellule, il y a un chiffre gris entre parenthèse. Ce chiffre est le score estimé de correspondance par OpenRefine (100 est le meilleur score).
 
@@ -108,11 +108,11 @@ S'il n'y a pas de choix proposé ou si les choix proposés ne sont pas pertinent
 
 Toutes les cellules de données qui ont été réconciliées peuvent maintenant être enrichies par des données externes si celles-ci sont indexées dans les éléments correspondants de Wikidata.
 
-Cliquer sur les options de la colonne Titre_RECON \> Éditer la colonne \> Ajouter des colonnes à partir de valeurs réconciliées \> Ajouter une propriété : Sélectionner Propriétés suggérées : Qid \> OK. Il est aussi possible de cliquer sur les options de la colonne Titre_RECON \> Réconciliier \> Add column with URLs of matched entities... Nom de la colonne : Qid
+Cliquez sur les options de la colonne Titre_RECON \> Éditer la colonne \> Ajouter des colonnes à partir de valeurs réconciliées \> Ajouter une propriété : Sélectionnez Propriétés suggérées : Qid \> OK. Il est aussi possible de cliquer sur les options de la colonne Titre_RECON \> Réconcilier \> Add column with URLs of matched entities... Nom de la colonne : Qid
 
 Une nouvelle colonne Qid contenant l'identifiant Wikidata est créée (sous la forme d'un identifiant ou sous la forme d'une URL avec l'identifiant, selon la méthode utilisée précédemment).
 
-Recommencer en ajoutant les propriétés suivantes :
+Recommencez en ajoutant les propriétés suivantes :
 
 -   *Author*,
 
@@ -124,7 +124,7 @@ Recommencer en ajoutant les propriétés suivantes :
 
 -   *Place of Publication*.
 
-Si ces propriétés ne sont pas listées dans Propriétés suggérées alors les écrire une par une dans la case sous Ajouter une propriété (voir Figure 7).
+Si ces propriétés ne sont pas listées dans Propriétés suggérées alors écrirez-les une par une dans la case sous Ajouter une propriété (voir Figure 7).
 
 ![Figure 7. Enrichir en ajoutant des propriétés et leurs valeurs](images/figure7-enrichissement.png)
 
@@ -223,7 +223,7 @@ Le processus de réconciliation peut être très lent si vous l'appliquez sur un
 
 Avant l'exportation finale des données enrichies, je recommande d'ajouter une nouvelle colonne qui contient l'identifiant unique de chaque réconciliation (Qid dans le cas de Wikidata). C'est particulièrement important si vous faites une exportation du jeu de données enrichies au format CSV. En effet, si vous ne le faites pas, seul le libellé de la cellule sera exporté et non la valeur de la clé d'appariement (de toutes les cases réconciliées bleutées).
 
-Pour cela, avec notre exemple ci-dessus, cliquer sur les options de la colonne Titre_RECON \> Réconcilier \> Ajouter une colonne d'identifiants d'entités... Donner le titre de la colonne : Titre_QID
+Pour cela, avec notre exemple ci-dessus, cliquez sur les options de la colonne Titre_RECON \> Réconcilier \> Ajouter une colonne d'identifiants d'entités... Donnez le titre de la colonne : Titre_QID
 
 ### Comment améliorer la réconciliation ? {#comment-améliorer-la-réconciliation}
 
@@ -231,22 +231,22 @@ Vous remarquerez probablement que la réconciliation est parfois peu satisfaisan
 
 #### Pour une réconciliation plus stricte
 
--   Relancer une nouvelle réconciliation en choisissant un autre type de données recommandé.
--   Décocher *Correspondance automatique* des valeurs candidates pour pouvoir sélectionner tous les choix à faire.
-    -   Nombre maximal de candidats renvoyés : définir une valeur numérique
+-   Relancez une nouvelle réconciliation en choisissant un autre type de données recommandé.
+-   Décochez *Correspondance automatique* des valeurs candidates pour pouvoir sélectionner tous les choix à faire.
+    -   Nombre maximal de candidats renvoyés : définissez une valeur numérique
 -   Option *Utiliser également les détails pertinents des autres colonnes* :
-    -   Apparier des colonnes de vos données initiales avec des colonnes de la source externe.
+    -   Appariez des colonnes de vos données initiales avec des colonnes de la source externe.
     -   Par exemple, dans notre cas on pourrait utiliser Date : *publication date (P577)*.
 
 #### Pour une réconciliation moins stricte (proposant ou résolvant plus de choix)
 
--   Relancer une réconciliation en choisissant Réconcilier sans type particulier.
-    -   Observer les scores de reconciliation (entre parenthèses après les valeurs proposées, entre 0 et 100) et déterminer le score minimum adapté pour résoudre automatiquement les réconciliations.
-    -   Si ce n'est pas déjà fait, faire afficher la facette Titre_RECON : meilleur score des candidats (en cliquant sur les options de la colonne \> Réconcilier \> Facettes \> Meilleur score des candidats)
-    -   Déplacer l'intervalle vers 80-100.
-    -   Cliquer sur les options de la colonne \> Réconcilier \> Actions \> Apparier chaque cellule avec son meilleur candidat. Seule la meilleure des valeurs entre 80 et 100 sera utilisée. Une valeur basse de 20 sera ignorée, même si c'est la meilleure parmi d'autres valeurs (ex : 9, 10, 12 et 15).\
--   Relancer une réconciliation en choisissant un autre type de données recommandé.
--   Traiter les données de la cellule pour une forme plus courte (ou non abrégée, ou sans acronymes) et relancer une réconciliation. Par exemple :
+-   Relancez une réconciliation en choisissant Réconcilier sans type particulier.
+    -   Observez les scores de reconciliation (entre parenthèses après les valeurs proposées, entre 0 et 100) et déterminez le score minimum adapté pour résoudre automatiquement les réconciliations.
+    -   Si ce n'est pas déjà fait, faîtes afficher la facette Titre_RECON : meilleur score des candidats (en cliquant sur les options de la colonne \> Réconcilier \> Facettes \> Meilleur score des candidats)
+    -   Déplacez l'intervalle vers 80-100.
+    -   Cliquez sur les options de la colonne \> Réconcilier \> Actions \> Apparier chaque cellule avec son meilleur candidat. Seule la meilleure des valeurs entre 80 et 100 sera utilisée. Une valeur basse de 20 sera ignorée, même si c'est la meilleure parmi d'autres valeurs (ex : 9, 10, 12 et 15).\
+-   Relancez une réconciliation en choisissant un autre type de données recommandé.
+-   Traitez les données de la cellule pour une forme plus courte (ou non abrégée, ou sans acronymes) et relancez une réconciliation. Par exemple :
     -   `De Alchemia (1541)` -\> `De Alchemia`
     -   `Hist Sci Med`-\> `Histoire des sciences médicales`
     -   `AHA` -\> `American Historical Association`

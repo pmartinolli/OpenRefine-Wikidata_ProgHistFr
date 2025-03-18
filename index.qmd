@@ -35,7 +35,7 @@ Nous allons voir dans ce tutoriel comment utiliser OpenRefine sur des données l
 
 ## Installation
 
-[Installer OpenRefine](https://openrefine.org/download.html) sur son ordinateur (Windows, Mac OS ou Linux). Comme il s'agit d'un programme qui s'execute dans le navigateur, il n'est pas nécessaire d'avoir des droits d'administrateur pour l'installer.
+[Installez OpenRefine](https://openrefine.org/download.html) sur son ordinateur (Windows, Mac OS ou Linux). Comme il s'agit d'un programme qui s'execute dans le navigateur, il n'est pas nécessaire d'avoir des droits d'administrateur pour l'installer.
 
 ## Choisir un jeu de données
 
@@ -47,9 +47,9 @@ L'objectif est d'enrichir ces données en important des données supplémentaire
 
 ## Lancer OpenRefine et importer les données
 
-Cliquez sur *Languages* et changer pour Français. Puis cliquez sur Créer un projet \> Cet ordinateur \> Sélect. fichiers \> Sélectionnez le fichier CSV \> Suivant \> Configurez les options d'analyse syntaxique : Les colonnes sont séparées par : une virgule \> Cliquez sur Créer un projet.
+Cliquez sur *Languages* et changez pour Français. Puis cliquez sur Créer un projet \> Cet ordinateur \> Sélect. fichiers \> Sélectionnez le fichier CSV \> Suivant \> Configurez les options d'analyse syntaxique : Les colonnes sont séparées par : une virgule \> Cliquez sur Créer un projet.
 
-Vérifiez que tout est bien importé ou changer les paramètres de la page Configurer les options d'analyse syntaxique.
+Vérifiez que tout est bien importé ou changez les paramètres de la page Configurez les options d'analyse syntaxique.
 
 On peut noter sur cette page, la possibilité d'importer les données depuis de nombreux formats : XLS et XLSX (Microsoft Excel), JSON (et JSON-LD), fichiers texte à base de lignes, fichiers CSV (ou TSV ou semblables comme notre exemple), fichiers textes à largeur de champ fixe, PC-Axis, MARC, RDF (/N3, /N-Triples, /Turtle, /XML), Wikitext, ODS (fichier de tableur de LibreOffice Calc).
 
@@ -69,7 +69,7 @@ Réconciliez la colonne Titre_RECON en cliquant sur les options de cette colonne
 
 ![Figure 2. - Démarrer la réconciliation](images/figure2-demarrer-reconciliation.png)
 
-Choisir un service... : Wikidata reconci.link \> Suivant.
+Choisissez un service... : Wikidata reconci.link \> Suivant.
 
 Dans la case de gauche (voir Figure 3), sélectionnez le type de données le plus proche du contenu de la colonne. Dans notre cas, nous allons sélectionner *literary work* (Q7725634) ou bien choisir Réconcilier sans type particulier.
 
@@ -79,7 +79,7 @@ Pour le moment, ignorez les autres options \> Démarrer la réconciliation...
 
 Attendez que le processus se termine. On peut voir la progression dans une zone jaune en haut du tableau principal.
 
-Une fois terminé, observer plusieurs choses :
+Une fois terminé, observez plusieurs choses :
 
 -   Sous le titre de la colonne, une ligne verte indique le taux de réconciliation. Une ligne complètement verte indique ainsi que toutes les données ont été réconciliées. Il est aussi possible d'afficher et de sélectionner cette information dans les facettes du menu de gauche.
 -   Que plusieurs éléments de la colonne Titre_RECON sont désormais bleutés et cliquables. Cela veut dire qu'ils ont été appariés avec un élément Wikidata qui devrait leur correspondre (voir Figure 4).
@@ -100,7 +100,7 @@ Pour aller plus loin, rendez-vous à la section [Comment améliorer la réconcil
 
 En survolant les valeurs proposées en choix, il est possible de visualiser un extrait de l'élément Wikidata. En cliquant sur le lien, cela ouvre un nouveau onglet vers cet élément Wikidata. Il est possible de choisir une valeur pour chaque cellulle non résolue. À la fin de chaque choix pour chaque cellule, il y a un chiffre gris entre parenthèse. Ce chiffre est le score estimé de correspondance par OpenRefine (100 est le meilleur score).
 
-S'il n'y a pas de choix proposé ou si les choix proposés ne sont pas pertinents, alors cliquer sur Choisir une nouvelle correspondance. Il est alors possible de saisir une valeur plus courte ou mieux rédigée pour tenter de repérer l'élément correspondant (voir Figure 6).
+S'il n'y a pas de choix proposé ou si les choix proposés ne sont pas pertinents, alors cliquez sur Choisir une nouvelle correspondance. Il est alors possible de saisir une valeur plus courte ou mieux rédigée pour tenter de repérer l'élément correspondant (voir Figure 6).
 
 ![Figure 6. - Recherche d'une nouvelle correspondance.](images/figure6-correspondance.png)
 
@@ -128,7 +128,7 @@ Si ces propriétés ne sont pas listées dans Propriétés suggérées alors éc
 
 ![Figure 7. Enrichir en ajoutant des propriétés et leurs valeurs](images/figure7-enrichissement.png)
 
-Il est aussi possible de refaire la même opération à partir de la colonne *Place of Publication* pour récupérer les coordonnées géographiques (*Coordinate location*) dans le cas où on voudrait visualiser les données sur une carte.
+Il est aussi possible de refaire la même opération à partir de la colonne *Place of Publication* pour récupérer les coordonnées géographiques (*Coordinate location (P625)*) dans le cas où on voudrait visualiser les données sur une carte.
 
 Il est recommandé de faire ces opérations d'enrichissement à la fin de tous vos processus de réconciliation car il n'y a pas de boutons "mise à jour". Si on veut refaire l'opération dans le futur, par exemple parce que les données Wikidata ont été améliorées entre temps, alors il faut supprimer la colonne et la recréer.
 
@@ -184,22 +184,22 @@ Cependant, il est possible de connecter OpenRefine à d'autres services de réco
 
 [Liste des services](https://reconciliation-api.github.io/testbench/#/) actifs actuellement. Parmi ces services, voici une sélection intéressant plus particulièrement les historien.nes :
 
--   *Pleiades Geocollider* : pour repérer des anciens lieux géographiques (sites, villes, etc.).
+-   *Pleiades Geocollider* : anciens lieux géographiques (sites, villes, etc.).
 
--   *PeriodO* : pour repérer des périodes historiques ou archéologiques.
+-   *PeriodO* : périodes historiques ou archéologiques.
 
--   *Kerameikos* : pour repérer des informations sur l'amphorologie et les céramiques anciennes.
+-   *Kerameikos* : informations sur l'amphorologie et les céramiques anciennes.
 
--   *GODOT – Graph of Dated Objects and Texts* : pour repérer des dates selon différents calendriers de Rome et de la Grèce antique.
+-   *GODOT – Graph of Dated Objects and Texts* : dates selon différents calendriers de Rome et de la Grèce antique.
 
--   *Nomisma* : pour repérer des informations numismatiques sur les monnaies anciennes.
+-   *Nomisma* : informations numismatiques sur les monnaies anciennes.
 
 Voici quelques suggestions de méthodes si une institution ne possède pas de service de réconciliation :
 
--   Écrire à l'institution pour qu'elle mette en place un tel service.
--   Utiliser les données de Wikidata comme intermédiaires car de nombreuses métadonnées d'autres sources se trouvent déjà structurées dans Wikidata. Par exemple, les descripteurs de la Library of Congress (LCSH) ne sont plus disponibles directement avec un service de réconciliation. Cependant, une partie des descripteurs LCSH sont indexés dans Wikidata.
--   Dans OpenRefine, utiliser une colonne d'URL de pages web pour récupérer le contenu de ces pages et traiter leurs contenus pour en [extraire les données](https://programminghistorian.org/en/lessons/fetch-and-parse-data-with-openrefine) voulues. Ainsi, si vous avez des URL vers des pages web de catalogues d'institution, il est raisonnablement programmable d'extraire les champs de la page de description d'un élément de ce catalogue en ligne.
--   Télécharger les données ou la liste des données d'une institution et faire une réconciliation avec les informations téléchargées et traitées.
+-   Écrivez à l'institution pour qu'elle mette en place un tel service.
+-   Utilisez les données de Wikidata comme intermédiaires car de nombreuses métadonnées d'autres sources se trouvent déjà structurées dans Wikidata. Par exemple, les descripteurs de la Library of Congress (LCSH) ne sont plus disponibles directement avec un service de réconciliation. Cependant, une partie des descripteurs LCSH sont indexés dans Wikidata.
+-   Dans OpenRefine, utilisez une colonne d'URL de pages web pour récupérer le contenu de ces pages et traitez leurs contenus pour en [extraire les données](https://programminghistorian.org/en/lessons/fetch-and-parse-data-with-openrefine) voulues. Ainsi, si vous avez des URL vers des pages web de catalogues d'institution, il est raisonnablement programmable d'extraire les champs de la page de description d'un élément de ce catalogue en ligne.
+-   Téléchargez les données ou la liste des données d'une institution et faire une réconciliation avec les informations téléchargées et traitées.
 
 ### Y a-t-il d'autres méthodes pour réconcilier des données ?
 
@@ -207,7 +207,7 @@ Voici quelques suggestions de méthodes si une institution ne possède pas de se
 
 Cette méthode est semblable à la formule RECHERCHEV (*VLOOKUP*) de Excel. Ce n'est pas tout à fait de la réconciliation car c'est un appariement strict entre deux tables, basés sur une colonne commune contenant une clé. Ce [billet de Ruth Tillman](https://ruthtillman.com/talk/cell-cross-webinar-2020-03/) explique ce processus de croisement de cellules (*cell cross*).
 
-Comme ce processus de croisement de cellules est très rigoureux, il a des inconvénients : il est sensible à la casse, aux espaces, aux erreurs de saisie, etc. Pour pouvoir faire la même chose mais bénéficier de l'algorithme de correspondance floue (*fuzz matching*) de la réconciliation, il faut installer une extension à OpenRefine qui s'appelle [reconcile-csv](https://okfnlabs.org/projects/reconcile-csv/).
+Comme ce processus de croisement de cellules est très rigoureux, il a des inconvénients : il est sensible à la casse, aux espaces, aux erreurs de saisie, etc. Pour pouvoir faire la même chose mais bénéficier de l'algorithme de correspondance floue (*fuzz matching*) de la réconciliation, il faut installer une extension à OpenRefine qui s'appelle [reconcile-csv](https://okfnlabs.org/projects/reconcile-csv/).
 
 #### Avec un programme codé spécifiquement
 
@@ -215,7 +215,7 @@ Par exemple, il est possible de coder en Python (ou autre) un programme qui lanc
 
 ### Faire un plan et documenter chaque décision
 
-Avant de vous lancer dans un processus de réconciliation, définissez des objectifs et concevez un plan progressif de traitement des données pour atteindre cet objectif. Ensuite, lors du déroulement de ce plan, documenter toutes les décisions prises à chaque étape.
+Avant de vous lancer dans un processus de réconciliation, définissez des objectifs et concevez un plan progressif de traitement des données pour atteindre cet objectif. Ensuite, lors du déroulement de ce plan, documentez toutes les décisions prises à chaque étape.
 
 Le processus de réconciliation peut être très lent si vous l'appliquez sur un grand nombre de données. Pour cette raison, je vous recommande de tester votre plan sur un petit nombre d'enregistrements (entre 10 et 20). Si ce plan est adapté, alors appliquez ce plan à toutes vos données.
 
@@ -265,7 +265,7 @@ Comme mentionné précédemment, il est important de conserver la colonne des do
 
 # Discussion
 
-Comme le souligne Yann Audin (2024), « les logiciels, matériel informatique (hardware), bases de données et algorithmes ne sont pas politiquement neutres, et ils ont des impacts importants sur notre horizon épistémique. » L'utilisation de la réconciliation dans un projet de recherche en histoire soulève ainsi des questions méthodologiques concernant l'enrichissement des corpus et les processus de traitement des données.
+Comme le souligne Yann Audin (2024), « les logiciels, matériel informatique (*hardware*), bases de données et algorithmes ne sont pas politiquement neutres, et ils ont des impacts importants sur notre horizon épistémique. » L'utilisation de la réconciliation dans un projet de recherche en histoire soulève ainsi des questions méthodologiques concernant l'enrichissement des corpus et les processus de traitement des données.
 
 Tout d’abord, le choix du service de réconciliation influence directement la qualité et l’exhaustivité des données enrichies. Par exemple, si l’on opte pour Wikidata, les entités les plus notables et déjà bien référencées bénéficieront d’un enrichissement plus précis et détaillé, tandis que les entités marginales, moins documentées ou issues de contextes historiographiques peu explorés, risquent d’être sous-représentées. Ce phénomène peut renforcer des biais existants dans la production et la transmission du savoir historique. Une manière de pallier ce biais consiste à contribuer activement à Wikidata en ajoutant de nouveaux éléments ou en améliorant ceux existants. Cette possibilité de correction n’existe pas toujours avec d’autres services de réconciliation, qui ne permettent pas nécessairement une contribution ouverte pour rectifier les asymétries dans les données. De plus, plutôt que de se limiter à un seul service comme Wikidata, il pourrait être intéressant d’explorer la combinaison de plusieurs sources pour réduire des biais liés à la sous-représentation d’entités marginales.
 
@@ -273,7 +273,7 @@ Enfin, l’intégration de la réconciliation dans un flux de travail dynamique 
 
 # Remerciements
 
-Je remercie [Maxime Guénette](https://github.com/maxguen) qui a suscité, relu et ajouté de nombreux conseils à cette leçon; [Caroline Patenaude](https://github.com/crlnp/) pour sa relecture; Laurence Charest et Teresa Bascik pour leurs tests de versement de OpenRefine vers Wikidata; et enfin la communauté Wikimédia et Wikidata pour leurs contributions.
+Je remercie [Maxime Guénette](https://github.com/maxguen), doctorant en histoire à l'Université de Montréal, qui a suscité, relu et ajouté de nombreux conseils à cette leçon; [Caroline Patenaude](https://github.com/crlnp/), bibliothécaire à l'Université de Montréal, pour sa relecture; Laurence Charest et Teresa Bascik, bibliothécaires à l'Université de Montréal, pour leurs tests de versement de OpenRefine vers Wikidata; et enfin je remercie la communauté Wikimédia et plus spécifiquement la communauté Wikidata pour leurs contributions.
 
 # Sources
 

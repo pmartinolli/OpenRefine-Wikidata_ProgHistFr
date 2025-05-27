@@ -95,7 +95,7 @@ alt="Figure 6. - Recherche d’une nouvelle correspondance." />
 
 Toutes les cellules de données qui ont été réconciliées peuvent maintenant être enrichies par des données externes si celles-ci sont indexées dans les éléments correspondants de Wikidata.
 
-Cliquez sur les options de la colonne Titre_RECON \> Éditer la colonne \> Ajouter des colonnes à partir de valeurs réconciliées \> Ajouter une propriété : Sélectionnez Propriétés suggérées : Qid \> OK (ou écrivez Qid dans la case de recherche et sélectionnez SPARQL: Qid). Il est aussi possible de cliquer sur les options de la colonne Titre_RECON \> Réconcilier \> Add column with URLs of matched entities… Nom de la colonne : Qid
+Cliquez sur les options de la colonne Titre_RECON \> Éditer la colonne \> Ajouter des colonnes à partir de valeurs réconciliées \> Ajouter une propriété : Sélectionnez Propriétés suggérées : Qid \> OK (ou écrivez Qid dans la case de recherche et sélectionnez SPARQL: qid). Il est aussi possible de cliquer sur les options de la colonne Titre_RECON \> Réconcilier \> Add column with URLs of matched entities… Nom de la colonne : Qid
 
 Une nouvelle colonne Qid contenant l’identifiant Wikidata est créée (sous la forme d’un identifiant ou sous la forme d’une URL avec l’identifiant, selon la méthode utilisée précédemment).
 
@@ -212,7 +212,7 @@ Le processus de réconciliation peut être très lent si vous l’appliquez sur 
 
 ### Ajouter une colonne avec les identifiants
 
-Avant l’exportation finale des données enrichies, je recommande d’ajouter une nouvelle colonne qui contient l’identifiant unique de chaque réconciliation (SPARQL: Qid dans le cas de Wikidata). C’est particulièrement important si vous faites une exportation du jeu de données enrichies au format CSV. En effet, si vous ne le faites pas, seul le libellé de la cellule sera exporté et non la valeur de la clé d’appariement (de toutes les cases réconciliées bleutées).
+Avant l’exportation finale des données enrichies, je recommande d’ajouter une nouvelle colonne qui contient l’identifiant unique de chaque réconciliation (SPARQL: qid dans le cas de Wikidata). C’est particulièrement important si vous faites une exportation du jeu de données enrichies au format CSV. En effet, si vous ne le faites pas, seul le libellé de la cellule sera exporté et non la valeur de la clé d’appariement (de toutes les cases réconciliées bleutées).
 
 Pour cela, avec notre exemple ci-dessus, cliquez sur les options de la colonne Titre_RECON \> Réconcilier \> Ajouter une colonne d’identifiants d’entités… Donnez le titre de la colonne : Titre_QID
 

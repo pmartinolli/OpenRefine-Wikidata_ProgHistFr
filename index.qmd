@@ -10,7 +10,7 @@ date: "2025-04-10"
 abstract: "Cette leçon vous initie à enrichir un jeu de données de recherche avec d'autres données liées provenant de diverses sources externes accessibles, Wikidata par exemple. Cet enrichissement, basé sur un processus nommé « réconciliation », est géré par OpenRefine."
 keywords: "OpenRefine; Wikidata; réconciliation des données; alignement des données; enrichissement des données; données ouvertes liées"
 
-format: 
+format:
   html:
     code-fold: false
     toc: true
@@ -22,8 +22,11 @@ format:
     fig-format: png
   docx:
     reference-doc: annexes/custom-reference.docx
+  gfm:
+    preview-mode: raw
 execute:
   echo: false 
+  warning: false
   results: hide
 ---
 
